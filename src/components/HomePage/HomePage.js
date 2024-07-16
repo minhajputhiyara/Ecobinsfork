@@ -56,7 +56,7 @@ const HomePage = () => {
             <li>Embrace green practices for a cleaner environment</li>
            </ol>
           
-          <Link to="/sign-up" className="cta-button">Sign up</Link><br />
+          <Link to="/signin" className="cta-button">Sign up</Link><br />
         
           <img src="/images/Bins_001.jpg" alt="Recycling bottle" className="steps-image"/>
         </section> 

@@ -9,6 +9,8 @@ import HomePage from './components/HomePage/HomePage';
 import AboutPage from './components/AboutPage/AboutPage';
 import SearchOptions from './components/SearchOptions/SearchOptions';
 import CarbonFootprintForm from './components/Form/CarbonFootprintForm';
+import SignIn from './components/Sign In Page/SignIn';
+import SignUp from './components/Sign In Page/SignUp';
 
 function App() {
   return (
@@ -20,6 +22,8 @@ function App() {
           <Route path="/disposal" element={<DisposalGuide />} />
           <Route path="/search" element={<SearchPage />} />
           <Route path="/about" element={<AboutPage />} />
+          <Route path="/signin" element={<SignIn />} />
+          <Route path="/signup" element={<SignUp />} />
           <Route path="/search-options" element={<SearchOptions />} />
           <Route path="/carbon-footprint" element={<CarbonFootprintForm />} />
         </Routes>
