@@ -11,6 +11,10 @@ import SearchOptions from './components/SearchOptions/SearchOptions';
 import CarbonFootprintForm from './components/Form/CarbonFootprintForm';
 import SignIn from './components/Sign In Page/SignIn';
 import SignUp from './components/Sign In Page/SignUp';
+import PostsManagement from './components/Posts/PostsManagement';
+import OrderDetails from './components/Orders/OrderDetails';
+import AddPost from './components/Posts/AddPost';
+import EditPost from './components/Posts/EditPost';
 
 function App() {
   return (
@@ -26,6 +30,10 @@ function App() {
           <Route path="/signup" element={<SignUp />} />
           <Route path="/search-options" element={<SearchOptions />} />
           <Route path="/carbon-footprint" element={<CarbonFootprintForm />} />
+          <Route path="/posts-management" element={<PostsManagement />} />
+          <Route path="/order-details" element={<OrderDetails />} />
+          <Route path="/add-post" element={<AddPost />} />
+          <Route path="/edit-post/:id" element={<EditPost />} />
         </Routes>
       </div>
     </Router>

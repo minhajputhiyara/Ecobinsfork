@@ -1,0 +1,72 @@
+/* src/components/OrderDetails.css */
+
+.order-details-card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    margin: 20px auto;
+    max-width: 600px;
+    width: 90%;
+  }
+  
+  .order-details-card h2 {
+    color: #4CD964;
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .order-info {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .info-item {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .label {
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px;
+  }
+  
+  .value, .items-list, .delivery-details {
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    padding: 10px;
+  }
+  
+  .items-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 10px;
+  }
+  
+  .items-list li {
+    margin-bottom: 5px;
+  }
+  
+  .delivery-details p {
+    margin: 5px 0;
+  }
+  
+  @media (min-width: 768px) {
+    .info-item {
+      flex-direction: row;
+      align-items: flex-start;
+    }
+  
+    .label {
+      width: 30%;
+      margin-bottom: 0;
+      padding-top: 10px;
+    }
+  
+    .value, .items-list, .delivery-details {
+      width: 70%;
+    }
+  }
