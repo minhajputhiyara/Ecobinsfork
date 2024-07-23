@@ -9,12 +9,13 @@ import HomePage from './components/HomePage/HomePage';
 import AboutPage from './components/AboutPage/AboutPage';
 import SearchOptions from './components/SearchOptions/SearchOptions';
 import CarbonFootprintForm from './components/Form/CarbonFootprintForm';
-import SignIn from './components/Sign In Page/SignIn';
-import SignUp from './components/Sign In Page/SignUp';
+import SignIn from './components/SignPage/SignIn';
+import SignUp from './components/SignPage/SignUp';
 import PostsManagement from './components/Posts/PostsManagement';
 import OrderDetails from './components/Orders/OrderDetails';
 import AddPost from './components/Posts/AddPost';
 import EditPost from './components/Posts/EditPost';
+import ProfilePage from './components/ProfilePage/ProfilePage';
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
           <Route path="/order-details" element={<OrderDetails />} />
           <Route path="/add-post" element={<AddPost />} />
           <Route path="/edit-post/:id" element={<EditPost />} />
+          <Route path="/profile" element={<ProfilePage/>} />
         </Routes>
       </div>
     </Router>

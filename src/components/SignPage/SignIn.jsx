@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { 
-  signInWithEmailAndPassword, 
-  signInWithPopup, 
+import {
+  signInWithEmailAndPassword,
+  signInWithPopup,
   GoogleAuthProvider
 } from "firebase/auth";
 import { auth } from "../firebase";
@@ -15,18 +15,18 @@ const SignIn = () => {
   const [errorMessage, setErrorMessage] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
 
-  const handleSuccessfulSignIn = () => {
+  const handleSuccessfulSignIn = (userEmail) => {
     setSuccessMessage("Signed in successfully!");
     setTimeout(() => {
-      navigate("/dashboard"); // Replace with your desired route
-    }, 1500); // Redirect after 1.5 seconds
+      navigate("/profile", { state: { email: userEmail } });
+    }, 1500);
   };
 
   const signInWithEmail = async (e) => {
     e.preventDefault();
     try {
       const userCredential = await signInWithEmailAndPassword(auth, email, password);
-      handleSuccessfulSignIn();
+      handleSuccessfulSignIn(userCredential.user.email);
       console.log("Signed in with email:", userCredential.user);
     } catch (error) {
       setErrorMessage(error.message);
@@ -39,7 +39,7 @@ const SignIn = () => {
     const provider = new GoogleAuthProvider();
     try {
       const result = await signInWithPopup(auth, provider);
-      handleSuccessfulSignIn();
+      handleSuccessfulSignIn(result.user.email);
       console.log("Signed in with Google:", result.user);
     } catch (error) {
       setErrorMessage(error.message);
@@ -51,10 +51,9 @@ const SignIn = () => {
   return (
     <div className="sign-in-container">
       <h1>Sign In to Your Account</h1>
-      
+     
       {errorMessage && <p className="error-message">{errorMessage}</p>}
       {successMessage && <p className="success-message">{successMessage}</p>}
-
       <form onSubmit={signInWithEmail} className="sign-in-form">
         <input
           type="email"
@@ -72,7 +71,6 @@ const SignIn = () => {
         />
         <button type="submit" className="btn btn-primary">Sign In with Email</button>
       </form>
-
       <button onClick={signInWithGoogle} className="btn btn-google">Sign In with Google</button>
     </div>
   );
