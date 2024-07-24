@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { getFirestore, doc, setDoc, getDoc, collection, query, where, getDocs } from 'firebase/firestore';
 import { getAuth, signOut } from 'firebase/auth';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import './ProfilePage.css';
 
 function ProfilePage() {
@@ -11,11 +12,14 @@ function ProfilePage() {
     email: '',
     address: '',
     gender: '',
-    age: ''
+    age: '',
+    profileImageUrl: ''
   });
+  const [imageFile, setImageFile] = useState(null);
 
   const auth = getAuth();
   const db = getFirestore();
+  const storage = getStorage();
   const location = useLocation();
   const navigate = useNavigate();
   const userEmail = location.state?.email || auth.currentUser?.email;
@@ -51,11 +55,27 @@ function ProfilePage() {
     }));
   };
 
+  const handleImageChange = (e) => {
+    if (e.target.files[0]) {
+      setImageFile(e.target.files[0]);
+    }
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (userEmail) {
+      let updatedProfile = { ...profile };
+
+      if (imageFile) {
+        const storageRef = ref(storage, `profile_images/${userEmail}`);
+        await uploadBytes(storageRef, imageFile);
+        const downloadURL = await getDownloadURL(storageRef);
+        updatedProfile.profileImageUrl = downloadURL;
+      }
+
       const userDocRef = doc(db, 'user_profile', 'mcM9x1ZDL86Bv6TgoAl1');
-      await setDoc(userDocRef, profile, { merge: true });
+      await setDoc(userDocRef, updatedProfile, { merge: true });
+      setProfile(updatedProfile);
       alert('Profile updated successfully!');
     } else {
       alert('User email not found. Please sign in again.');
@@ -75,7 +95,11 @@ function ProfilePage() {
       <nav className="navbar">
         <h1 className="main-heading">Ecobins</h1>
         <div className="user-info">
-          <img src="/path-to-default-user-image.jpg" alt="User" className="user-photo" />
+          <img 
+            src={profile.profileImageUrl || "/path-to-default-user-image.jpg"} 
+            alt="User" 
+            className="user-photo" 
+          />
           <span>Hi, {profile.name || 'User'}</span>
           <button onClick={handleLogout} className="logout-btn">Logout</button>
         </div>
@@ -84,6 +108,25 @@ function ProfilePage() {
       <div className="profile-content">
         <h2>Edit Profile</h2>
         <form onSubmit={handleSubmit}>
+          <div>
+            <label htmlFor="profileImage">Profile Image:</label>
+            <input
+              type="file"
+              id="profileImage"
+              accept="image/*"
+              onChange={handleImageChange}
+            />
+          </div>
+          {profile.profileImageUrl && (
+            <div>
+              <img 
+                src={profile.profileImageUrl} 
+                alt="Profile" 
+                className="profile-preview" 
+                style={{ width: '100px', height: '100px', objectFit: 'cover' }}
+              />
+            </div>
+          )}
           <div>
             <label htmlFor="name">Name:</label>
             <input
