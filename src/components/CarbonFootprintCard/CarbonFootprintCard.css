@@ -1,0 +1,14 @@
+.carbon-footprint-card {
+    border-radius: 15px;
+    background-color: #f9f9f9;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    margin: auto;
+    text-align: center;
+  }
+  
+  .chart-container {
+    margin-top: 20px;
+  }
+  

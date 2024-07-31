@@ -3,13 +3,28 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './HomePage.css';
-import Header from '../Header/Header';
-import Dashboard from '../Dashboard/Dashboard';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCog, faLeaf } from '@fortawesome/free-solid-svg-icons'; // Import icons
+import CarbonFootprintCard from '../CarbonFootprintCard/CarbonFootprintCard';
 
 const HomePage = () => {
   return (
     <div className="home-page">
-      
+      <header>
+        <nav>
+          
+          <div className="icons">
+            {/* Settings Icon */}
+            <Link to="/settings" className="icon-link">
+              <FontAwesomeIcon icon={faCog} size="lg" />
+            </Link>
+            {/* Carbon Footprint Icon */}
+            <Link to="/carbon-footprint" className="icon-link">
+              <FontAwesomeIcon icon={faLeaf} size="lg" />
+            </Link>
+          </div>
+        </nav>
+      </header>
 
       <main>
         <section className="hero">
@@ -63,21 +78,23 @@ const HomePage = () => {
           <img src="/images/person recycling.png" alt="Person with recycling symbols" className="testimonial-image" />
         </section>
 
-        <section className="dashboard-preview">
-          <h2>Your Dashboard Preview</h2>
-          <Dashboard />
-        </section>
-
-        <section className="quick-links">
-          <h2>Quick Access</h2>
-          <ul>
-            <li><Link to="/dashboard">View Your Dashboard</Link></li>
-            <li><Link to="/profile">Manage Your Profile</Link></li>
-            <li><Link to="/recycle">Recycling Guide</Link></li>
-            <li><Link to="/disposal">Disposal Guide</Link></li>
-            <li><Link to="/search">Search Waste Items</Link></li>
-            <li><Link to="/carbon-footprint">Calculate Carbon Footprint</Link></li>
-          </ul>
+        {/* Carbon Footprint Card */}
+        <section className="carbon-footprint-section">
+          <Link to="/carbon-footprint" className="carbon-footprint-link">
+            <CarbonFootprintCard
+              footprint={100}
+              data={{
+                labels: ['Transportation', 'Waste', 'Energy'],
+                datasets: [
+                  {
+                    data: [30, 20, 50],
+                    backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56'],
+                  },
+                ],
+              }}
+              chartType="bar"
+            />
+          </Link>
         </section>
       </main>
 
