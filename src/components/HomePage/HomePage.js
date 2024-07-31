@@ -3,6 +3,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './HomePage.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCog, faLeaf } from '@fortawesome/free-solid-svg-icons'; // Import icons
+import CarbonFootprintCard from '../CarbonFootprintCard/CarbonFootprintCard';
 
 const HomePage = () => {
   return (
@@ -16,6 +19,16 @@ const HomePage = () => {
             <li><Link to="/recycling-guide">Recycling Guide</Link></li>
             <li><Link to="/how-it-works">How It Works</Link></li>
           </ul>
+          <div className="icons">
+            {/* Settings Icon */}
+            <Link to="/settings" className="icon-link">
+              <FontAwesomeIcon icon={faCog} size="lg" />
+            </Link>
+            {/* Carbon Footprint Icon */}
+            <Link to="/carbon-footprint" className="icon-link">
+              <FontAwesomeIcon icon={faLeaf} size="lg" />
+            </Link>
+          </div>
         </nav>
       </header>
 
@@ -50,11 +63,11 @@ const HomePage = () => {
         <section className="how-it-works">
           <h2>Join our eco-friendly community</h2>
           <p>Follow 3 steps for sustainable waste management:</p>
-            <ol>
+          <ol>
             <li>Connect with our experts for personalized recycling advice</li>
             <li>Receive tailored eco solutions for your recycling needs</li>
             <li>Embrace green practices for a cleaner environment</li>
-           </ol>
+          </ol>
           
           <Link to="/signin" className="cta-button">Sign up</Link><br />
         
@@ -69,6 +82,25 @@ const HomePage = () => {
             <div className="rating">★★★★★</div>
           </div>
           <img src="/images/person recycling.png" alt="Person with recycling symbols" className="testimonial-image" />
+        </section>
+
+        {/* Carbon Footprint Card */}
+        <section className="carbon-footprint-section">
+          <Link to="/carbon-footprint" className="carbon-footprint-link">
+            <CarbonFootprintCard
+              footprint={100}
+              data={{
+                labels: ['Transportation', 'Waste', 'Energy'],
+                datasets: [
+                  {
+                    data: [30, 20, 50],
+                    backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56'],
+                  },
+                ],
+              }}
+              chartType="bar"
+            />
+          </Link>
         </section>
       </main>
 
