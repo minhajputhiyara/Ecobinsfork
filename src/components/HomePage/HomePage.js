@@ -12,13 +12,7 @@ const HomePage = () => {
     <div className="home-page">
       <header>
         <nav>
-          <div className="logo">EcoBins</div>
-          <ul className="nav-links">
-            <li><Link to="/">Home</Link></li>
-            <li><Link to="/about">About</Link></li>
-            <li><Link to="/recycling-guide">Recycling Guide</Link></li>
-            <li><Link to="/how-it-works">How It Works</Link></li>
-          </ul>
+          
           <div className="icons">
             {/* Settings Icon */}
             <Link to="/settings" className="icon-link">
@@ -69,7 +63,7 @@ const HomePage = () => {
             <li>Embrace green practices for a cleaner environment</li>
           </ol>
           
-          <Link to="/signin" className="cta-button">Sign up</Link><br />
+          <Link to="/sign-up" className="cta-button">Sign up</Link><br />
         
           <img src="/images/Bins_001.jpg" alt="Recycling bottle" className="steps-image"/>
         </section> 

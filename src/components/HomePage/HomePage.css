@@ -180,6 +180,31 @@ footer {
   margin-top: 1.5rem;
 }
 
+.dashboard-preview, .quick-links {
+  margin: 2rem 0;
+  padding: 1rem;
+  background-color: #f0f0f0;
+  border-radius: 8px;
+}
+
+.quick-links ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.quick-links li {
+  margin-bottom: 0.5rem;
+}
+
+.quick-links a {
+  color: #4CAF50;
+  text-decoration: none;
+}
+
+.quick-links a:hover {
+  text-decoration: underline;
+}
+
 /* Media Queries for larger screens */
 @media screen and (min-width: 768px) {
   h1 {

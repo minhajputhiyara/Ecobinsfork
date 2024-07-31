@@ -16,8 +16,15 @@ import OrderDetails from './components/Orders/OrderDetails';
 import AddPost from './components/Posts/AddPost';
 import EditPost from './components/Posts/EditPost';
 import ProfilePage from './components/ProfilePage/ProfilePage';
+<<<<<<< HEAD
+import Header from './components/Header/Header';  
+import Dashboard from './components/Dashboard/Dashboard';
+import MetricCard from './components/Dashboard/MetricCard';
+import  QuickAccessLinks from './components/Dashboard/QuickAccessLinks';
+=======
 import CarbonFootprintCard from './components/CarbonFootprintCard/CarbonFootprintCard';
 import SettingsPage from './components/SettingsPage/SettingsPage';
+>>>>>>> 2b2c8fdf39dae596cd6f6fc6e4dd5b8363b1f943
 
 
 function App() {
@@ -33,6 +40,8 @@ function App() {
   return (
     <Router>
       <div className="App">
+      <Header />
+      <main>
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/recycle" element={<RecyclingGuide />} />
@@ -48,10 +57,18 @@ function App() {
           <Route path="/order-details" element={<OrderDetails />} />
           <Route path="/add-post" element={<AddPost />} />
           <Route path="/edit-post/:id" element={<EditPost />} />
+<<<<<<< HEAD
+          <Route path="/profile" element={<ProfilePage/>} />
+          <Route path="/dashboard" element={<Dashboard/>} />
+          <Route path="dashboard/metric-card" element={<MetricCard/>}/>
+          <Route path="dashboard/quick-access-links" element={<QuickAccessLinks/>}/>
+=======
           <Route path="/profile" element={<ProfilePage />} />
           <Route path="/settings" element={<SettingsPage />} />
 
+>>>>>>> 2b2c8fdf39dae596cd6f6fc6e4dd5b8363b1f943
         </Routes>
+        </main>
       </div>
     </Router>
   );

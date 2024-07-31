@@ -1,0 +1,33 @@
+/* src/components/Header/Header.css */
+.main-header {
+  display: inline-flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 1rex;
+  background-color: #4CAF50;
+  color: white;
+  width: 100%;
+  margin: auto;
+  ;
+ 
+}
+
+.main-header div{
+    margin-left: 10px ;
+}
+
+.main-header nav ul {
+  display: flex;
+  list-style-type: none;
+  margin-left: 20%;
+}
+
+.main-header nav ul li {
+  margin-left: 1rem;
+}
+
+.main-header nav ul li a {
+  color: white;
+  text-decoration:none;
+  
+}
