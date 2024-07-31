@@ -16,11 +16,18 @@ import OrderDetails from './components/Orders/OrderDetails';
 import AddPost from './components/Posts/AddPost';
 import EditPost from './components/Posts/EditPost';
 import ProfilePage from './components/ProfilePage/ProfilePage';
+import Header from './components/Header/Header';  
+import Dashboard from './components/Dashboard/Dashboard';
+import MetricCard from './components/Dashboard/MetricCard';
+import  QuickAccessLinks from './components/Dashboard/QuickAccessLinks';
+
 
 function App() {
   return (
     <Router>
       <div className="App">
+      <Header />
+      <main>
         <Routes>
           <Route path="/" element={<HomePage/>} />
           <Route path="/recycle" element={<RecyclingGuide />} />
@@ -36,7 +43,11 @@ function App() {
           <Route path="/add-post" element={<AddPost />} />
           <Route path="/edit-post/:id" element={<EditPost />} />
           <Route path="/profile" element={<ProfilePage/>} />
+          <Route path="/dashboard" element={<Dashboard/>} />
+          <Route path="dashboard/metric-card" element={<MetricCard/>}/>
+          <Route path="dashboard/quick-access-links" element={<QuickAccessLinks/>}/>
         </Routes>
+        </main>
       </div>
     </Router>
   );

@@ -3,21 +3,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './HomePage.css';
+import Header from '../Header/Header';
+import Dashboard from '../Dashboard/Dashboard';
 
 const HomePage = () => {
   return (
     <div className="home-page">
-      <header>
-        <nav>
-          <div className="logo">EcoBins</div>
-          <ul className="nav-links">
-            <li><Link to="/">Home</Link></li>
-            <li><Link to="/about">About</Link></li>
-            <li><Link to="/recycling-guide">Recycling Guide</Link></li>
-            <li><Link to="/how-it-works">How It Works</Link></li>
-          </ul>
-        </nav>
-      </header>
+      
 
       <main>
         <section className="hero">
@@ -50,13 +42,13 @@ const HomePage = () => {
         <section className="how-it-works">
           <h2>Join our eco-friendly community</h2>
           <p>Follow 3 steps for sustainable waste management:</p>
-            <ol>
+          <ol>
             <li>Connect with our experts for personalized recycling advice</li>
             <li>Receive tailored eco solutions for your recycling needs</li>
             <li>Embrace green practices for a cleaner environment</li>
-           </ol>
+          </ol>
           
-          <Link to="/signin" className="cta-button">Sign up</Link><br />
+          <Link to="/sign-up" className="cta-button">Sign up</Link><br />
         
           <img src="/images/Bins_001.jpg" alt="Recycling bottle" className="steps-image"/>
         </section> 
@@ -69,6 +61,23 @@ const HomePage = () => {
             <div className="rating">★★★★★</div>
           </div>
           <img src="/images/person recycling.png" alt="Person with recycling symbols" className="testimonial-image" />
+        </section>
+
+        <section className="dashboard-preview">
+          <h2>Your Dashboard Preview</h2>
+          <Dashboard />
+        </section>
+
+        <section className="quick-links">
+          <h2>Quick Access</h2>
+          <ul>
+            <li><Link to="/dashboard">View Your Dashboard</Link></li>
+            <li><Link to="/profile">Manage Your Profile</Link></li>
+            <li><Link to="/recycle">Recycling Guide</Link></li>
+            <li><Link to="/disposal">Disposal Guide</Link></li>
+            <li><Link to="/search">Search Waste Items</Link></li>
+            <li><Link to="/carbon-footprint">Calculate Carbon Footprint</Link></li>
+          </ul>
         </section>
       </main>
 

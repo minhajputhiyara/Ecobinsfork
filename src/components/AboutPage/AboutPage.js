@@ -6,9 +6,10 @@ import './AboutPage.css';
 const AboutPage = () => {
   return (
     <div className="about-container">
+      
       <nav className="navbar">
         <ul>
-          {/* <li><Link to="/">Home</Link></li> */}
+          <li><Link to="/">Home</Link></li> 
           <li><Link to="/recycle">Recycling Guide</Link></li>
           <li><Link to="/disposal">Disposal Guide</Link></li>
           <li><Link to="/search">Search</Link></li>
@@ -16,6 +17,7 @@ const AboutPage = () => {
           
         </ul>
       </nav>
+      
       <div className="about-content">
         <h1>About EcoBin</h1>
         <img
